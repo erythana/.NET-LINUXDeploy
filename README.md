@@ -1,4 +1,5 @@
-### Deploy your Visual-Studio application to Linux and run it with .NETCORE automatically
+### Deploy your Visual-Studio application to Linux and run it with .NET Core automatically
+You can check the Output-Window in VisualStudio for additional information on whats happening in the BuildEvent
 
 - Requirements
  - A Visual Studio project where you set up -an PostBuild Event (Application - Propertieies - Buildevents - Postbuild Events)
