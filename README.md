@@ -2,10 +2,10 @@
 You can check the Output-Window in VisualStudio for additional information on whats happening in the BuildEvent
 
 - Requirements
- - A Visual Studio project where you set up -an PostBuild Event (Application - Propertieies - Buildevents - Postbuild Events)
- - Putty-Tools: **plink**, **pscp**  and **puttygen**
-  - .NET Core on your Remote-Linux Machine (Details on how to set everything up below)
- - A SSH Private Key (so the password isnt in your Build-Event! - Details below)
+   - A Visual Studio project where you set up -an PostBuild Event (Application - Propertieies - Buildevents - Postbuild Events)
+   - Putty-Tools: **plink**, **pscp**  and **puttygen**
+   - .NET Core on your Remote-Linux Machine (Details on how to set everything up below)
+   - A SSH Private Key (so the password isnt in your Build-Event! - Details below)
 ------------
 ### How to set everything up
  - Visual Studio Project
