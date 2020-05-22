@@ -3,9 +3,9 @@ echo COPYING PROJECTFILES TO LINUX HOST
 :: BEGIN CHANGE VARIABLES
 set p_username=pi
 set p_targethost=192.168.0.59
-set p_putty-privatekey="C:\Users\chris\Documents\sshprivatekey.ppk"
-set p_plink="C:\Users\chris\Downloads\plink.exe"
-set p_pscp="C:\Users\chris\Documents\pscp.exe"
+set p_putty-privatekey="C:\Users\erythana\Documents\sshprivatekey.ppk"
+set p_plink="C:\Users\erythana\Downloads\plink.exe"
+set p_pscp="C:\Users\erythana\Documents\pscp.exe"
 set p_linuxdotnetpath=/usr/share/dotnet/
 :: END CHANGE VARIABLES
 
@@ -22,8 +22,8 @@ set p_targetname=%p_targetname:\=/%
 echo Replaced backslashes from TargetName "$(TargetName)" with forwardslashes to "%p_targetname%"
 
 %p_plink% -batch -ssh %p_username%@%p_targethost% -i %p_putty-privatekey% -P 22 "mkdir -p /home/%p_username%/%p_targetname%/%p_outdir%"
-%p_pscp% -i %p_putty-privatekey% -r $(TargetDir) %p_username%@%p_targethost%:"/home/%p_username%/%p_targetname%/%p_outdir%"
+::%p_pscp% -i %p_putty-privatekey% -r $(TargetDir) %p_username%@%p_targethost%:"/home/%p_username%/%p_targetname%/%p_outdir%"
 IF NOT %ERRORLEVEL% == 0 ( ECHO Error while copying files!)
 
-%p_plink% -batch -ssh %p_username%@%p_targethost% -i %p_putty-privatekey% -P 22 "DISPLAY=:0.0 %p_linuxdotnetpath%dotnet /home/%p_username%/%p_targetname%/%p_outdir%%p_targetfilename%"
-IF %ERRORLEVEL% == 0 ( ECHO Copied and ran project successfully on remote machine)
+%p_plink% -X -batch -ssh %p_username%@%p_targethost% -i %p_putty-privatekey% -P 22 "DISPLAY=:0 %p_linuxdotnetpath%dotnet /home/%p_username%/%p_targetname%/%p_outdir%%p_targetfilename%"
+IF %ERRORLEVEL% == 0 ( ECHO Copied and ran project successfully on remote machine!)
